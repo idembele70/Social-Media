@@ -11,7 +11,7 @@ export default function Profile() {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
   const [user, setUser] = useState({});
   const username = useParams().username
-  
+  console.log(PF)
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -31,12 +31,20 @@ export default function Profile() {
             <div className="profileCover">
               <img
                 className="profileCoverImg"
-                src={user.coverPicture || PF+"person/noCover.jpeg" }
+                src={
+                  user.coverPicture 
+                  ? user.coverPicture 
+                  : PF+"person/noCover.jpeg" 
+                }
                 alt=""  
               />
               <img
                 className="profileUserImg"
-                src={user.profilePicture || `${PF}person/noavatar.png`}
+                src={
+                  user.profilePicture
+                    ? user.profilePicture
+                    : PF + "person/noAvatar.png"
+                }
                 alt=""
               />
             </div>

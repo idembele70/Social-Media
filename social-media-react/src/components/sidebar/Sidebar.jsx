@@ -1,7 +1,4 @@
-import React from 'react';
 import "./sidebar.css";
-import "./sidebar.css";
-import { Users } from "../../dummyData";
 import {
   RssFeed,
   Chat,
@@ -13,23 +10,23 @@ import {
   Event,
   School,
 } from "@material-ui/icons";
-import CloseFriends from '../closeFriends/CloseFriends';
-
+import { Users } from "../../dummyData";
+import CloseFriend from "../closeFriend/CloseFriends";
 
 export default function Sidebar() {
   return (
     <div className="sidebar">
-      <div className="sidebarwrapper">
-       <ul className="sidebarList">
-         <li className="sidebarListItem">
-            <RssFeed/>
-            <span className="sidebareListItemText">Feed</span>
-         </li>
-         <li className="sidebarListItem">
+      <div className="sidebarWrapper">
+        <ul className="sidebarList">
+          <li className="sidebarListItem">
+            <RssFeed className="sidebarIcon" />
+            <span className="sidebarListItemText">Feed</span>
+          </li>
+          <li className="sidebarListItem">
             <Chat className="sidebarIcon" />
             <span className="sidebarListItemText">Chats</span>
           </li>
-          <li className="side  barListItem">
+          <li className="sidebarListItem">
             <PlayCircleFilledOutlined className="sidebarIcon" />
             <span className="sidebarListItemText">Videos</span>
           </li>
@@ -58,14 +55,14 @@ export default function Sidebar() {
             <span className="sidebarListItemText">Courses</span>
           </li>
         </ul>
-        <button className="sidebarButton"> Show more</button>
-        <hr className="sidebarHr"/>
+        <button className="sidebarButton">Show More</button>
+        <hr className="sidebarHr" />
         <ul className="sidebarFriendList">
           {Users.map((u) => (
-          <CloseFriends key={u.id} user={u}/>
+            <CloseFriend key={u.id} user={u} />
           ))}
-                 </ul>
+        </ul>
       </div>
     </div>
-  )
+  );
 }
